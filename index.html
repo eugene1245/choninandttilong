@@ -1,272 +1,423 @@
+좋아, 이제 방향 딱 잡혔다.  
+이번 건 **수락산 동막골 자연휴양림 안내서** 느낌으로, 색은 숲/흙/종이 계열로 싹 바꾸고 서체도 장난기 빼서 정적으로 갔어. 폰에서 읽기 좋게 “모바일 안내 리플릿”처럼 구성했어.
+
+```html
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>=￣ω￣= 수락휴 힐링 여행</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Dongle:wght@300;400;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --mint: #59FFE3;
-            --choco: #4B2C20;
-            --white-glass: rgba(255, 255, 255, 0.98);
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>고요를 체험하시오.</title>
 
-        body {
-            font-family: 'Dongle', sans-serif;
-            background-color: var(--mint);
-            background-image: radial-gradient(var(--choco) 1.5px, transparent 0);
-            background-size: 60px 60px;
-            color: var(--choco);
-            margin: 0;
-            padding: 0;
-            font-size: 42pt;
-            line-height: 0.85;
-            word-break: keep-all;
-        }
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;500;600;700&family=Pretendard:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 40px 15px;
-        }
+  <style>
+    :root {
+      --forest: #1f3a2d;
+      --deep: #10231b;
+      --moss: #6f7f4f;
+      --fern: #8b9b6b;
+      --bark: #7a5a3a;
+      --soil: #3f3429;
+      --paper: #f4efe3;
+      --paper-deep: #e7ddca;
+      --line: rgba(31, 58, 45, 0.2);
+      --white: #fffaf0;
+    }
 
-        .main-title {
-            font-size: 85pt;
-            text-align: center;
-            font-weight: 700;
-            margin-bottom: 40px;
-            line-height: 1;
-            background: white;
-            border: 10px solid var(--choco);
-            border-radius: 60px;
-            padding: 20px 10px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+    * {
+      box-sizing: border-box;
+    }
 
-        .section-card {
-            background: var(--white-glass);
-            border: 7px solid var(--choco);
-            border-radius: 60px;
-            padding: 40px;
-            margin-bottom: 50px;
-            box-shadow: none;
-        }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--soil);
+      background:
+        linear-gradient(180deg, rgba(31, 58, 45, .88), rgba(31, 58, 45, .58) 260px, var(--paper) 520px),
+        var(--paper);
+      font-family: "Pretendard", system-ui, sans-serif;
+      word-break: keep-all;
+    }
 
-        .supplies-box {
-            background: var(--choco);
-            color: var(--mint);
-            border-radius: 40px;
-            padding: 30px;
-            margin-bottom: 50px;
-            font-size: 32pt;
-            text-align: center;
-        }
+    .guide {
+      width: min(520px, 100%);
+      margin: 0 auto;
+      padding: 18px 16px 40px;
+    }
 
-        .day-badge {
-            font-size: 90pt;
-            font-weight: 700;
-            display: block;
-            text-align: center;
-            margin-bottom: 15px;
-            border-bottom: 15px solid var(--choco);
-            line-height: 0.6;
-        }
+    .cover {
+      min-height: 44vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 44px 0 28px;
+      color: var(--white);
+    }
 
-        .plan-header {
-            background: var(--choco);
-            color: white;
-            display: block;
-            text-align: center;
-            padding: 10px 0;
-            border-radius: 25px;
-            font-size: 36pt;
-            margin: 30px 0 20px 0;
-        }
+    .place {
+      width: fit-content;
+      padding: 7px 11px;
+      border: 1px solid rgba(255, 250, 240, .55);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .08em;
+    }
 
-        .plan-item {
-            margin-bottom: 35px;
-            text-align: center;
-        }
+    h1 {
+      margin: 18px 0 14px;
+      font-family: "Noto Serif KR", serif;
+      font-size: clamp(42px, 12vw, 64px);
+      line-height: 1.12;
+      font-weight: 700;
+      letter-spacing: 0;
+    }
 
-        .time-slot {
-            font-weight: 700;
-            color: #FF1493;
-            font-size: 36pt;
-            display: block;
-        }
+    .subtitle {
+      margin: 0;
+      max-width: 410px;
+      color: rgba(255, 250, 240, .82);
+      font-size: 15px;
+      line-height: 1.75;
+      font-weight: 500;
+    }
 
-        .item-name {
-            font-size: 48pt;
-            font-weight: 700;
-            color: #000;
-            display: block;
-        }
+    .info-strip {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1px;
+      overflow: hidden;
+      border: 1px solid var(--forest);
+      background: var(--forest);
+    }
 
-        .location-tip {
-            font-size: 28pt;
-            color: #555;
-            line-height: 1;
-            margin-top: 5px;
-            display: block;
-        }
+    .info {
+      min-height: 84px;
+      padding: 14px;
+      background: var(--paper);
+    }
 
-        .move-guide {
-            background: #E0F2F1;
-            border-radius: 20px;
-            padding: 5px 20px;
-            font-size: 24pt;
-            color: #00796B;
-            display: inline-block;
-            margin-top: 8px;
-        }
+    .info span {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--moss);
+      font-size: 12px;
+      font-weight: 800;
+    }
 
-        .alert-box {
-            background-color: #FF5252;
-            color: white;
-            padding: 15px;
-            border-radius: 20px;
-            font-size: 30pt;
-            font-weight: 700;
-            margin-top: 20px;
-            line-height: 1;
-        }
+    .info strong {
+      display: block;
+      color: var(--deep);
+      font-family: "Noto Serif KR", serif;
+      font-size: 21px;
+      line-height: 1.2;
+      font-weight: 700;
+    }
 
-        .footer {
-            text-align: center;
-            padding: 50px 0 120px 0;
-            font-size: 32pt;
-            background: white;
-            border-top: 8px solid var(--choco);
-        }
+    .section-label {
+      margin: 30px 0 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--line);
+      color: var(--forest);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: .12em;
+    }
 
-        @media (max-width: 600px) {
-            body { font-size: 34pt; }
-            .main-title { font-size: 60pt; }
-            .day-badge { font-size: 80pt; }
-            .item-name { font-size: 42pt; }
-            .location-tip { font-size: 26pt; }
-            .alert-box { font-size: 24pt; }
-        }
-    </style>
+    .day {
+      margin-bottom: 14px;
+      border: 1px solid var(--line);
+      background: var(--white);
+    }
+
+    .day-header {
+      padding: 18px 16px;
+      background: var(--paper-deep);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .day-kicker {
+      display: block;
+      margin-bottom: 7px;
+      color: var(--bark);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .08em;
+    }
+
+    .day-title {
+      display: block;
+      color: var(--deep);
+      font-family: "Noto Serif KR", serif;
+      font-size: 25px;
+      line-height: 1.3;
+      font-weight: 700;
+    }
+
+    .schedule {
+      padding: 6px 16px 14px;
+    }
+
+    .row {
+      display: grid;
+      grid-template-columns: 58px 1fr;
+      gap: 13px;
+      padding: 15px 0;
+      border-bottom: 1px solid rgba(63, 52, 41, .13);
+    }
+
+    .row:last-child {
+      border-bottom: 0;
+    }
+
+    .time {
+      color: var(--forest);
+      font-size: 15px;
+      font-weight: 800;
+      line-height: 1.45;
+    }
+
+    .activity {
+      display: block;
+      margin-bottom: 5px;
+      color: var(--soil);
+      font-size: 16px;
+      line-height: 1.45;
+      font-weight: 750;
+    }
+
+    .desc {
+      margin: 0;
+      color: #6d6257;
+      font-size: 14px;
+      line-height: 1.6;
+      font-weight: 500;
+    }
+
+    .mark {
+      display: inline-block;
+      margin-top: 8px;
+      padding: 5px 8px;
+      border: 1px solid rgba(122, 90, 58, .35);
+      color: var(--bark);
+      background: #f8edd7;
+      font-size: 11px;
+      font-weight: 800;
+    }
+
+    .notice {
+      margin-top: 16px;
+      border: 1px solid var(--forest);
+      background: var(--forest);
+      color: var(--white);
+    }
+
+    .notice-header {
+      padding: 14px 16px;
+      border-bottom: 1px solid rgba(255, 250, 240, .18);
+      font-family: "Noto Serif KR", serif;
+      font-size: 21px;
+      font-weight: 700;
+    }
+
+    .notice ul {
+      margin: 0;
+      padding: 14px 16px 16px 34px;
+      color: rgba(255, 250, 240, .86);
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    .footer {
+      margin-top: 22px;
+      padding: 18px 0 0;
+      border-top: 1px solid var(--line);
+      color: #766b5e;
+      font-size: 12px;
+      line-height: 1.7;
+      text-align: center;
+    }
+
+    @media (min-width: 820px) {
+      .guide {
+        width: min(920px, 100%);
+        padding: 28px 20px 60px;
+      }
+
+      .cover {
+        min-height: 48vh;
+      }
+
+      .info-strip {
+        grid-template-columns: repeat(4, 1fr);
+      }
+
+      .days {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+      }
+
+      .day {
+        margin-bottom: 0;
+      }
+    }
+  </style>
 </head>
+
 <body>
+  <main class="guide">
+    <section class="cover">
+      <div class="place">SURAKSAN DONGMAKGOL FOREST GUIDE</div>
 
-    <div class="container">
-        
-        <div class="main-title">=￣ω￣=</div>
+      <h1>고요를<br>체험하시오.</h1>
 
-        <!-- 준비물 -->
-        <div class="supplies-box">
-            🎒 <strong>준비물 리스트</strong> 🎒<br>
-            신분증 세면도구 겉옷/외투 바비큐재료<br>
-            보도배터리 힐링용책/게임 개인상비약 간식
+      <p class="subtitle">
+        수락산 동막골 자연휴양림에서 보내는 1박 2일.
+        숲의 속도에 맞춰 도착하고, 쉬고, 걷고, 돌아오는 작은 안내서입니다.
+      </p>
+    </section>
+
+    <section class="info-strip">
+      <div class="info">
+        <span>장소</span>
+        <strong>수락산<br>동막골</strong>
+      </div>
+      <div class="info">
+        <span>일정</span>
+        <strong>1박<br>2일</strong>
+      </div>
+      <div class="info">
+        <span>목적</span>
+        <strong>휴식과<br>산책</strong>
+      </div>
+      <div class="info">
+        <span>준비</span>
+        <strong>가볍고<br>따뜻하게</strong>
+      </div>
+    </section>
+
+    <div class="section-label">ITINERARY</div>
+
+    <section class="days">
+      <article class="day">
+        <header class="day-header">
+          <span class="day-kicker">DAY 1</span>
+          <span class="day-title">숲에 도착하는 날</span>
+        </header>
+
+        <div class="schedule">
+          <div class="row">
+            <div class="time">11:00</div>
+            <div>
+              <span class="activity">출발 및 이동</span>
+              <p class="desc">간단한 간식과 물을 챙기고 휴양림 방향으로 이동합니다.</p>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="time">13:00</div>
+            <div>
+              <span class="activity">점심 식사</span>
+              <p class="desc">도착 전후로 부담 없는 식사를 하고 오후 일정을 준비합니다.</p>
+              <span class="mark">장소 수정 예정</span>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="time">15:00</div>
+            <div>
+              <span class="activity">입실 및 짐 정리</span>
+              <p class="desc">숙소에 들어가 짐을 풀고 잠시 쉬어갑니다.</p>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="time">16:30</div>
+            <div>
+              <span class="activity">가벼운 숲 산책</span>
+              <p class="desc">무리하지 않는 코스로 주변을 둘러보며 숲의 분위기를 익힙니다.</p>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="time">18:30</div>
+            <div>
+              <span class="activity">저녁 및 휴식</span>
+              <p class="desc">식사 후 숙소에서 조용히 쉬며 첫날을 마무리합니다.</p>
+            </div>
+          </div>
         </div>
+      </article>
 
-        <!-- DAY 1: 수락휴 입실 & 바비큐 -->
-        <div class="section-card">
-            <span class="day-badge">DAY 1</span>
-            
-            <div class="plan-header">📍 수락휴 입실 & 숲속 힐링</div>
-            
-            <div class="plan-item">
-                <span class="time-slot">12:30</span>
-                <span class="item-name">🛒 장보기 & 점심 식사</span>
-                <span class="location-tip">초은이랑 만나서 장보고 맛있는 점심!</span>
-                <span class="move-guide">마트에서 고기, 야채, 주전부리 털기</span>
-            </div>
+      <article class="day">
+        <header class="day-header">
+          <span class="day-kicker">DAY 2</span>
+          <span class="day-title">천천히 돌아오는 날</span>
+        </header>
 
-            <div class="plan-item">
-                <span class="time-slot">14:30</span>
-                <span class="item-name">🌲 수락휴 도착 & 산책</span>
-                <span class="location-tip">체크인 전 숲길 따라 가벼운 산책</span>
+        <div class="schedule">
+          <div class="row">
+            <div class="time">08:30</div>
+            <div>
+              <span class="activity">기상 및 아침 정리</span>
+              <p class="desc">창밖 공기를 확인하고 가볍게 몸을 깨웁니다.</p>
             </div>
+          </div>
 
-            <div class="plan-item">
-                <span class="time-slot">15:00</span>
-                <span class="item-name">🔑 체크인 & 짐 풀기</span>
-                <span class="location-tip">객실 입실해서 편한 옷 갈아입기</span>
+          <div class="row">
+            <div class="time">10:00</div>
+            <div>
+              <span class="activity">체크아웃 준비</span>
+              <p class="desc">짐을 정리하고 두고 가는 물건이 없는지 확인합니다.</p>
             </div>
+          </div>
 
-            <div class="plan-item">
-                <span class="time-slot">16:30</span>
-                <span class="item-name">☕ 숲속 티타임 & 수다</span>
-                <span class="location-tip">자연 소리 들으면서 커피 한 잔의 여유</span>
+          <div class="row">
+            <div class="time">11:00</div>
+            <div>
+              <span class="activity">마지막 산책</span>
+              <p class="desc">돌아가기 전 짧게 걷거나 벤치에 앉아 시간을 보냅니다.</p>
+              <span class="mark">메인 여유 시간</span>
             </div>
+          </div>
 
-            <div class="plan-item">
-                <span class="time-slot">18:30</span>
-                <span class="item-name">🥩 바비큐 파티</span>
-                <span class="location-tip">고기 굽고 짠! 맛있는 저녁 타임</span>
+          <div class="row">
+            <div class="time">12:30</div>
+            <div>
+              <span class="activity">점심 식사</span>
+              <p class="desc">근처 식당 또는 이동 동선에 맞춰 식사합니다.</p>
             </div>
+          </div>
 
-            <div class="plan-item">
-                <span class="time-slot">21:00</span>
-                <span class="item-name">🌙 밤 산책 & 보드게임</span>
-                <span class="location-tip">별 구경하고 방에서 넷플릭스/게임</span>
+          <div class="row">
+            <div class="time">14:30</div>
+            <div>
+              <span class="activity">귀가</span>
+              <p class="desc">너무 늦지 않게 출발해 여행의 여운을 남깁니다.</p>
             </div>
-
-            <div class="alert-box text-center">
-                📢 야간 산책 시 겉옷 필수!<br>
-                (숲속이라 밤에는 쌀쌀해요 챙겨입기!)
-            </div>
+          </div>
         </div>
+      </article>
+    </section>
 
-        <!-- DAY 2: 퇴실 & 산책 -->
-        <div class="section-card">
-            <span class="day-badge">DAY 2</span>
-            
-            <div class="plan-header">📍 숲길 산책 & 마무리</div>
-            
-            <div class="plan-item">
-                <span class="time-slot">09:00</span>
-                <span class="item-name">🍳 숲속 모닝 브런치</span>
-                <span class="location-tip">라면이나 간단한 아침 만들어 먹기</span>
-            </div>
+    <section class="notice">
+      <div class="notice-header">이용 전 확인</div>
+      <ul>
+        <li>편한 신발, 얇은 겉옷, 개인 세면도구를 준비합니다.</li>
+        <li>입실 시간과 퇴실 시간을 미리 확인합니다.</li>
+        <li>산책 코스는 당일 날씨와 컨디션에 맞춰 조정합니다.</li>
+        <li>일정은 여유를 기준으로 하며, 무리한 이동은 줄입니다.</li>
+      </ul>
+    </section>
 
-            <div class="plan-item">
-                <span class="time-slot">10:30</span>
-                <span class="item-name">🧹 짐 정리 & 퇴실 준비</span>
-                <span class="location-tip">분리수거 및 사용한 물건 정리하기</span>
-            </div>
-
-            <div class="plan-item">
-                <span class="time-slot">11:00</span>
-                <span class="item-name">🚪 체크아웃</span>
-                <span class="location-tip">열쇠 반납하고 출발 준비</span>
-            </div>
-
-            <div class="plan-item">
-                <span class="time-slot">11:30</span>
-                <span class="item-name">🌲 동막골 둘레길 산책</span>
-                <span class="location-tip">맑은 공기 마시며 기념 사진 찍기</span>
-            </div>
-
-            <div class="plan-item">
-                <span class="time-slot">13:00</span>
-                <span class="item-name">🍲 근처 맛집 점심 식사</span>
-                <span class="location-tip">체력 보충해 줄 뜨끈한 메뉴 먹기</span>
-            </div>
-
-            <div class="plan-item">
-                <span class="time-slot">15:00</span>
-                <span class="item-name">🚌 집으로 출발</span>
-                <span class="location-tip">힐링 완료! 조심히 귀가하기</span>
-            </div>
-        </div>
-
-        <div class="footer">
-            🌲 힐링 1박 2일 🌲<br>
-            유진이랑 초은이랑 즐거운 추억 만들고 오기!<br>
-            조심히 잘 다녀와야해 멍멍! 🩵
-        </div>
-
-    </div>
-
+    <footer class="footer">
+      SU RAK SAN DONGMAKGOL NATURAL RECREATION FOREST<br>
+      1 NIGHT 2 DAYS QUIET STAY GUIDE
+    </footer>
+  </main>
 </body>
 </html>
+```
