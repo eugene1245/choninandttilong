@@ -1,428 +1,272 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>고요를 체험하시오.</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>=￣ω￣= 수락휴 힐링 여행</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dongle:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --mint: #59FFE3;
+            --choco: #4B2C20;
+            --white-glass: rgba(255, 255, 255, 0.98);
+        }
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bagel+Fat+One&display=swap" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/gh/sunn-us/SUIT/fonts/static/woff2/SUIT.css" rel="stylesheet">
+        body {
+            font-family: 'Dongle', sans-serif;
+            background-color: var(--mint);
+            background-image: radial-gradient(var(--choco) 1.5px, transparent 0);
+            background-size: 60px 60px;
+            color: var(--choco);
+            margin: 0;
+            padding: 0;
+            font-size: 42pt;
+            line-height: 0.85;
+            word-break: keep-all;
+        }
 
-  <style>
-    :root {
-      --ink: #171517;
-      --cream: #fff8e8;
-      --pink: #ff7ab6;
-      --yellow: #ffe066;
-      --mint: #8ff0cf;
-      --blue: #83c9ff;
-      --purple: #b69cff;
-      --card: rgba(255, 255, 255, 0.82);
-      --line: rgba(23, 21, 23, 0.16);
-    }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 15px;
+        }
 
-    * {
-      box-sizing: border-box;
-    }
+        .main-title {
+            font-size: 85pt;
+            text-align: center;
+            font-weight: 700;
+            margin-bottom: 40px;
+            line-height: 1;
+            background: white;
+            border: 10px solid var(--choco);
+            border-radius: 60px;
+            padding: 20px 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
 
-    body {
-      margin: 0;
-      min-height: 100vh;
-      color: var(--ink);
-      font-family: "SUIT", system-ui, sans-serif;
-      background:
-        linear-gradient(135deg, rgba(255, 224, 102, .78), rgba(143, 240, 207, .7) 34%, rgba(255, 122, 182, .65) 68%, rgba(131, 201, 255, .72)),
-        var(--cream);
-      word-break: keep-all;
-    }
+        .section-card {
+            background: var(--white-glass);
+            border: 7px solid var(--choco);
+            border-radius: 60px;
+            padding: 40px;
+            margin-bottom: 50px;
+            box-shadow: none;
+        }
 
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      background-image:
-        radial-gradient(circle, rgba(23, 21, 23, .16) 1.4px, transparent 1.4px);
-      background-size: 24px 24px;
-      opacity: .55;
-    }
+        .supplies-box {
+            background: var(--choco);
+            color: var(--mint);
+            border-radius: 40px;
+            padding: 30px;
+            margin-bottom: 50px;
+            font-size: 32pt;
+            text-align: center;
+        }
 
-    .app {
-      position: relative;
-      width: min(480px, 100%);
-      margin: 0 auto;
-      padding: 18px 14px 34px;
-    }
+        .day-badge {
+            font-size: 90pt;
+            font-weight: 700;
+            display: block;
+            text-align: center;
+            margin-bottom: 15px;
+            border-bottom: 15px solid var(--choco);
+            line-height: 0.6;
+        }
 
-    .hero {
-      min-height: 48vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      padding: 36px 4px 22px;
-    }
+        .plan-header {
+            background: var(--choco);
+            color: white;
+            display: block;
+            text-align: center;
+            padding: 10px 0;
+            border-radius: 25px;
+            font-size: 36pt;
+            margin: 30px 0 20px 0;
+        }
 
-    .ticket {
-      width: fit-content;
-      padding: 8px 12px;
-      border: 1.5px solid var(--ink);
-      border-radius: 999px;
-      background: var(--yellow);
-      font-size: 13px;
-      font-weight: 800;
-      box-shadow: 3px 3px 0 var(--ink);
-    }
+        .plan-item {
+            margin-bottom: 35px;
+            text-align: center;
+        }
 
-    h1 {
-      margin: 18px 0 12px;
-      font-family: "Bagel Fat One", system-ui, sans-serif;
-      font-size: clamp(58px, 18vw, 92px);
-      line-height: .9;
-      letter-spacing: 0;
-    }
+        .time-slot {
+            font-weight: 700;
+            color: #FF1493;
+            font-size: 36pt;
+            display: block;
+        }
 
-    .intro {
-      margin: 0;
-      max-width: 390px;
-      font-size: 17px;
-      line-height: 1.65;
-      font-weight: 650;
-    }
+        .item-name {
+            font-size: 48pt;
+            font-weight: 700;
+            color: #000;
+            display: block;
+        }
 
-    .warning {
-      display: inline-block;
-      margin-top: 14px;
-      padding: 9px 12px;
-      border: 1.5px solid var(--ink);
-      border-radius: 8px;
-      background: rgba(255, 255, 255, .72);
-      font-size: 14px;
-      font-weight: 800;
-    }
+        .location-tip {
+            font-size: 28pt;
+            color: #555;
+            line-height: 1;
+            margin-top: 5px;
+            display: block;
+        }
 
-    .status-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 10px;
-      margin: 10px 0 16px;
-    }
+        .move-guide {
+            background: #E0F2F1;
+            border-radius: 20px;
+            padding: 5px 20px;
+            font-size: 24pt;
+            color: #00796B;
+            display: inline-block;
+            margin-top: 8px;
+        }
 
-    .status {
-      min-height: 92px;
-      padding: 14px;
-      border: 1.5px solid var(--ink);
-      border-radius: 8px;
-      background: var(--card);
-      box-shadow: 4px 4px 0 var(--ink);
-    }
+        .alert-box {
+            background-color: #FF5252;
+            color: white;
+            padding: 15px;
+            border-radius: 20px;
+            font-size: 30pt;
+            font-weight: 700;
+            margin-top: 20px;
+            line-height: 1;
+        }
 
-    .status span {
-      display: block;
-      margin-bottom: 8px;
-      font-size: 12px;
-      font-weight: 800;
-      color: #5d535e;
-    }
+        .footer {
+            text-align: center;
+            padding: 50px 0 120px 0;
+            font-size: 32pt;
+            background: white;
+            border-top: 8px solid var(--choco);
+        }
 
-    .status strong {
-      display: block;
-      font-size: 22px;
-      line-height: 1.15;
-      font-weight: 900;
-    }
-
-    .section-title {
-      margin: 28px 2px 10px;
-      font-family: "Bagel Fat One", system-ui, sans-serif;
-      font-size: 34px;
-      line-height: 1;
-      letter-spacing: 0;
-    }
-
-    .day-card {
-      margin-bottom: 14px;
-      border: 1.5px solid var(--ink);
-      border-radius: 8px;
-      background: var(--card);
-      overflow: hidden;
-      box-shadow: 5px 5px 0 var(--ink);
-    }
-
-    .day-head {
-      padding: 16px;
-      border-bottom: 1.5px solid var(--ink);
-      background: var(--mint);
-    }
-
-    .day-card:nth-of-type(2) .day-head {
-      background: var(--pink);
-    }
-
-    .day-label {
-      display: block;
-      font-size: 13px;
-      font-weight: 900;
-      margin-bottom: 6px;
-    }
-
-    .day-name {
-      display: block;
-      font-family: "Bagel Fat One", system-ui, sans-serif;
-      font-size: 34px;
-      line-height: 1;
-    }
-
-    .mission-list {
-      padding: 6px 16px 14px;
-    }
-
-    .mission {
-      display: grid;
-      grid-template-columns: 58px 1fr;
-      gap: 12px;
-      padding: 15px 0;
-      border-bottom: 1px dashed var(--line);
-    }
-
-    .mission:last-child {
-      border-bottom: 0;
-    }
-
-    .time {
-      font-size: 18px;
-      font-weight: 950;
-      color: #f04f9f;
-    }
-
-    .mission strong {
-      display: block;
-      font-size: 17px;
-      line-height: 1.35;
-      margin-bottom: 4px;
-    }
-
-    .mission p {
-      margin: 0;
-      color: #5d535e;
-      font-size: 14px;
-      line-height: 1.45;
-      font-weight: 600;
-    }
-
-    .badge {
-      display: inline-block;
-      margin-top: 8px;
-      padding: 5px 8px;
-      border: 1px solid var(--ink);
-      border-radius: 999px;
-      background: var(--yellow);
-      font-size: 11px;
-      font-weight: 900;
-    }
-
-    .notice {
-      margin-top: 18px;
-      padding: 18px;
-      border: 1.5px solid var(--ink);
-      border-radius: 8px;
-      background: rgba(255, 248, 232, .86);
-      box-shadow: 5px 5px 0 var(--ink);
-    }
-
-    .notice h2 {
-      margin: 0 0 10px;
-      font-family: "Bagel Fat One", system-ui, sans-serif;
-      font-size: 28px;
-      line-height: 1;
-    }
-
-    .notice ul {
-      margin: 0;
-      padding-left: 18px;
-      color: #4f4651;
-      font-size: 15px;
-      line-height: 1.7;
-      font-weight: 650;
-    }
-
-    @media (min-width: 760px) {
-      .app {
-        width: min(920px, 100%);
-        padding: 28px 20px 56px;
-      }
-
-      .hero {
-        min-height: 44vh;
-      }
-
-      .status-grid {
-        grid-template-columns: repeat(4, 1fr);
-      }
-
-      .days {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 16px;
-      }
-
-      .day-card {
-        margin-bottom: 0;
-      }
-    }
-  </style>
+        @media (max-width: 600px) {
+            body { font-size: 34pt; }
+            .main-title { font-size: 60pt; }
+            .day-badge { font-size: 80pt; }
+            .item-name { font-size: 42pt; }
+            .location-tip { font-size: 26pt; }
+            .alert-box { font-size: 24pt; }
+        }
+    </style>
 </head>
-
 <body>
-  <main class="app">
-    <section class="hero">
-      <div class="ticket">1박 2일 고요 체험권</div>
 
-      <h1>고요를<br>체험하시오.</h1>
+    <div class="container">
+        
+        <div class="main-title">=￣ω￣=</div>
 
-      <p class="intro">
-        본 일정은 조용한 척하지만 속으로는 매우 신난 상태를 권장합니다.
-        무리한 계획은 반입 금지입니다.
-      </p>
-
-      <div class="warning">주의: 생각보다 많이 먹을 수 있음</div>
-    </section>
-
-    <section class="status-grid">
-      <div class="status">
-        <span>입장권</span>
-        <strong>1박 2일</strong>
-      </div>
-
-      <div class="status">
-        <span>난이도</span>
-        <strong>하</strong>
-      </div>
-
-      <div class="status">
-        <span>필수 스킬</span>
-        <strong>멍 때리기</strong>
-      </div>
-
-      <div class="status">
-        <span>최종 보상</span>
-        <strong>기분 좋아짐</strong>
-      </div>
-    </section>
-
-    <h2 class="section-title">훈련 일정</h2>
-
-    <section class="days">
-      <article class="day-card">
-        <header class="day-head">
-          <span class="day-label">DAY 1</span>
-          <span class="day-name">고요 입장</span>
-        </header>
-
-        <div class="mission-list">
-          <div class="mission">
-            <div class="time">11:00</div>
-            <div>
-              <strong>집결 및 출발</strong>
-              <p>일단 모입니다. 벌써 여행 온 척 시작합니다.</p>
-            </div>
-          </div>
-
-          <div class="mission">
-            <div class="time">13:00</div>
-            <div>
-              <strong>점심으로 정신 차리기</strong>
-              <p>배고픈 상태에서는 아무도 고요할 수 없습니다.</p>
-              <span class="badge">필수 코스</span>
-            </div>
-          </div>
-
-          <div class="mission">
-            <div class="time">15:00</div>
-            <div>
-              <strong>숙소 체크인</strong>
-              <p>짐을 풀고 침대에 3분 누워서 숙소 평가를 시작합니다.</p>
-            </div>
-          </div>
-
-          <div class="mission">
-            <div class="time">17:00</div>
-            <div>
-              <strong>산책 또는 카페</strong>
-              <p>목적지는 있지만 급할 이유는 없습니다. 예쁘면 멈춥니다.</p>
-            </div>
-          </div>
-
-          <div class="mission">
-            <div class="time">19:00</div>
-            <div>
-              <strong>저녁과 밤 공기</strong>
-              <p>맛있는 거 먹고 “아 좋다”를 최소 3회 말합니다.</p>
-            </div>
-          </div>
+        <!-- 준비물 -->
+        <div class="supplies-box">
+            🎒 <strong>준비물 리스트</strong> 🎒<br>
+            신분증 세면도구 겉옷/외투 바비큐재료<br>
+            보도배터리 힐링용책/게임 개인상비약 간식
         </div>
-      </article>
 
-      <article class="day-card">
-        <header class="day-head">
-          <span class="day-label">DAY 2</span>
-          <span class="day-name">고요 심화</span>
-        </header>
-
-        <div class="mission-list">
-          <div class="mission">
-            <div class="time">08:30</div>
-            <div>
-              <strong>느린 기상</strong>
-              <p>알람은 울렸지만 인생은 그렇게까지 급하지 않습니다.</p>
+        <!-- DAY 1: 수락휴 입실 & 바비큐 -->
+        <div class="section-card">
+            <span class="day-badge">DAY 1</span>
+            
+            <div class="plan-header">📍 수락휴 입실 & 숲속 힐링</div>
+            
+            <div class="plan-item">
+                <span class="time-slot">12:30</span>
+                <span class="item-name">🛒 장보기 & 점심 식사</span>
+                <span class="location-tip">초은이랑 만나서 장보고 맛있는 점심!</span>
+                <span class="move-guide">마트에서 고기, 야채, 주전부리 털기</span>
             </div>
-          </div>
 
-          <div class="mission">
-            <div class="time">10:00</div>
-            <div>
-              <strong>브런치</strong>
-              <p>아침 겸 점심 겸 행복 충전 의식입니다.</p>
+            <div class="plan-item">
+                <span class="time-slot">14:30</span>
+                <span class="item-name">🌲 수락휴 도착 & 산책</span>
+                <span class="location-tip">체크인 전 숲길 따라 가벼운 산책</span>
             </div>
-          </div>
 
-          <div class="mission">
-            <div class="time">12:00</div>
-            <div>
-              <strong>고요 체험</strong>
-              <p>찻집, 정원, 전시, 명상 공간 중 하나를 고릅니다.</p>
-              <span class="badge">오늘의 메인</span>
+            <div class="plan-item">
+                <span class="time-slot">15:00</span>
+                <span class="item-name">🔑 체크인 & 짐 풀기</span>
+                <span class="location-tip">객실 입실해서 편한 옷 갈아입기</span>
             </div>
-          </div>
 
-          <div class="mission">
-            <div class="time">14:30</div>
-            <div>
-              <strong>간식과 기념품</strong>
-              <p>작은 것을 사고 “이건 추억이야”라고 합리화합니다.</p>
+            <div class="plan-item">
+                <span class="time-slot">16:30</span>
+                <span class="item-name">☕ 숲속 티타임 & 수다</span>
+                <span class="location-tip">자연 소리 들으면서 커피 한 잔의 여유</span>
             </div>
-          </div>
 
-          <div class="mission">
-            <div class="time">16:00</div>
-            <div>
-              <strong>귀가</strong>
-              <p>아쉽지만 내일의 나를 위해 품위 있게 퇴장합니다.</p>
+            <div class="plan-item">
+                <span class="time-slot">18:30</span>
+                <span class="item-name">🥩 바비큐 파티</span>
+                <span class="location-tip">고기 굽고 짠! 맛있는 저녁 타임</span>
             </div>
-          </div>
+
+            <div class="plan-item">
+                <span class="time-slot">21:00</span>
+                <span class="item-name">🌙 밤 산책 & 보드게임</span>
+                <span class="location-tip">별 구경하고 방에서 넷플릭스/게임</span>
+            </div>
+
+            <div class="alert-box text-center">
+                📢 야간 산책 시 겉옷 필수!<br>
+                (숲속이라 밤에는 쌀쌀해요 챙겨입기!)
+            </div>
         </div>
-      </article>
-    </section>
 
-    <section class="notice">
-      <h2>이용 수칙</h2>
-      <ul>
-        <li>무리한 일정, 급한 걸음, 배고픈 토론 금지</li>
-        <li>멍 때리기, 디저트 추가, 예쁜 곳에서 멈추기 허용</li>
-        <li>계획은 계획일 뿐. 맛있는 냄새가 나면 변경 가능</li>
-      </ul>
-    </section>
-  </main>
+        <!-- DAY 2: 퇴실 & 산책 -->
+        <div class="section-card">
+            <span class="day-badge">DAY 2</span>
+            
+            <div class="plan-header">📍 숲길 산책 & 마무리</div>
+            
+            <div class="plan-item">
+                <span class="time-slot">09:00</span>
+                <span class="item-name">🍳 숲속 모닝 브런치</span>
+                <span class="location-tip">라면이나 간단한 아침 만들어 먹기</span>
+            </div>
+
+            <div class="plan-item">
+                <span class="time-slot">10:30</span>
+                <span class="item-name">🧹 짐 정리 & 퇴실 준비</span>
+                <span class="location-tip">분리수거 및 사용한 물건 정리하기</span>
+            </div>
+
+            <div class="plan-item">
+                <span class="time-slot">11:00</span>
+                <span class="item-name">🚪 체크아웃</span>
+                <span class="location-tip">열쇠 반납하고 출발 준비</span>
+            </div>
+
+            <div class="plan-item">
+                <span class="time-slot">11:30</span>
+                <span class="item-name">🌲 동막골 둘레길 산책</span>
+                <span class="location-tip">맑은 공기 마시며 기념 사진 찍기</span>
+            </div>
+
+            <div class="plan-item">
+                <span class="time-slot">13:00</span>
+                <span class="item-name">🍲 근처 맛집 점심 식사</span>
+                <span class="location-tip">체력 보충해 줄 뜨끈한 메뉴 먹기</span>
+            </div>
+
+            <div class="plan-item">
+                <span class="time-slot">15:00</span>
+                <span class="item-name">🚌 집으로 출발</span>
+                <span class="location-tip">힐링 완료! 조심히 귀가하기</span>
+            </div>
+        </div>
+
+        <div class="footer">
+            🌲 힐링 1박 2일 🌲<br>
+            유진이랑 초은이랑 즐거운 추억 만들고 오기!<br>
+            조심히 잘 다녀와야해 멍멍! 🩵
+        </div>
+
+    </div>
+
 </body>
 </html>
