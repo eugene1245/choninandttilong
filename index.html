@@ -1,0 +1,404 @@
+아래 그대로 복사해서 `.html` 파일에 붙여넣으면 돼요. 참고 파일의 귀여운 큰 틀은 살리되, 제목에 맞게 조금 더 차분하고 단정한 느낌으로 잡았습니다.
+
+```html
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>고요를 체험하시오.</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Gaegu:wght@300;400;700&family=Gowun+Dodum&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --ink: #2f3a34;
+      --muted: #66746c;
+      --paper: #fffdf7;
+      --mist: #eef6f1;
+      --leaf: #7fa891;
+      --clay: #d8a878;
+      --line: rgba(47, 58, 52, 0.16);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        linear-gradient(180deg, rgba(238,246,241,.9), rgba(255,253,247,.96)),
+        radial-gradient(circle at 16px 16px, rgba(127,168,145,.22) 2px, transparent 2px);
+      background-size: auto, 42px 42px;
+      font-family: "Gowun Dodum", system-ui, sans-serif;
+      word-break: keep-all;
+    }
+
+    .page {
+      width: min(1040px, 100%);
+      margin: 0 auto;
+      padding: 28px 18px 54px;
+    }
+
+    .hero {
+      min-height: 42vh;
+      display: grid;
+      align-items: end;
+      padding: 36px 0 28px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      width: fit-content;
+      padding: 8px 13px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255,253,247,.82);
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    h1 {
+      margin: 18px 0 12px;
+      font-family: "Gaegu", "Gowun Dodum", cursive;
+      font-size: clamp(58px, 11vw, 128px);
+      line-height: .86;
+      letter-spacing: 0;
+    }
+
+    .lead {
+      max-width: 650px;
+      margin: 0;
+      color: var(--muted);
+      font-size: clamp(18px, 2.5vw, 24px);
+      line-height: 1.55;
+    }
+
+    .quick-panel {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+      margin: 24px 0 34px;
+    }
+
+    .quick,
+    .day,
+    .note {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255,253,247,.94);
+    }
+
+    .quick {
+      min-height: 92px;
+      padding: 16px;
+    }
+
+    .quick span {
+      display: block;
+      color: var(--muted);
+      font-size: 14px;
+      margin-bottom: 8px;
+    }
+
+    .quick strong {
+      font-family: "Gaegu", "Gowun Dodum", cursive;
+      font-size: 28px;
+      line-height: 1;
+    }
+
+    .days {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .day {
+      overflow: hidden;
+    }
+
+    .day-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 22px 22px 18px;
+      background: linear-gradient(135deg, rgba(127,168,145,.2), rgba(139,183,199,.15));
+      border-bottom: 1px solid var(--line);
+    }
+
+    .day-num {
+      font-family: "Gaegu", "Gowun Dodum", cursive;
+      font-size: 48px;
+      font-weight: 700;
+      line-height: .9;
+    }
+
+    .day-theme {
+      color: var(--muted);
+      text-align: right;
+      font-size: 16px;
+    }
+
+    .timeline {
+      padding: 18px 20px 22px;
+    }
+
+    .item {
+      display: grid;
+      grid-template-columns: 82px 1fr;
+      gap: 14px;
+      padding: 15px 0;
+      border-bottom: 1px dashed var(--line);
+    }
+
+    .item:last-child {
+      border-bottom: 0;
+    }
+
+    .time {
+      color: var(--leaf);
+      font-family: "Gaegu", "Gowun Dodum", cursive;
+      font-size: 30px;
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    .title {
+      display: block;
+      font-size: 19px;
+      font-weight: 700;
+      line-height: 1.35;
+    }
+
+    .memo {
+      display: block;
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.5;
+    }
+
+    .tag {
+      display: inline-flex;
+      margin-top: 9px;
+      padding: 5px 9px;
+      border-radius: 999px;
+      background: rgba(216,168,120,.18);
+      color: #7a5635;
+      font-size: 13px;
+    }
+
+    .note-band {
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 16px;
+      margin-top: 16px;
+    }
+
+    .note {
+      min-height: 138px;
+      padding: 20px;
+      background: rgba(238,246,241,.74);
+    }
+
+    .note h2 {
+      margin: 0 0 12px;
+      font-family: "Gaegu", "Gowun Dodum", cursive;
+      font-size: 34px;
+      line-height: 1;
+    }
+
+    .note p,
+    .note ul {
+      margin: 0;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.65;
+    }
+
+    .note ul {
+      padding-left: 20px;
+    }
+
+    @media (max-width: 760px) {
+      .page {
+        padding: 18px 14px 36px;
+      }
+
+      .hero {
+        min-height: 36vh;
+      }
+
+      .quick-panel,
+      .days,
+      .note-band {
+        grid-template-columns: 1fr;
+      }
+
+      .quick {
+        min-height: 76px;
+      }
+
+      .day-head {
+        align-items: start;
+        flex-direction: column;
+      }
+
+      .day-theme {
+        text-align: left;
+      }
+
+      .item {
+        grid-template-columns: 70px 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="page">
+    <section class="hero">
+      <div>
+        <div class="eyebrow">1박 2일 쉼표 여행 계획표</div>
+        <h1>고요를<br>체험하시오.</h1>
+        <p class="lead">
+          빽빽하게 해내는 여행보다, 천천히 도착하고 오래 바라보는 쪽으로.
+          아래 일정은 예시라서 장소와 시간만 바꿔도 바로 완성됩니다.
+        </p>
+      </div>
+    </section>
+
+    <section class="quick-panel">
+      <div class="quick"><span>여행 기간</span><strong>1박 2일</strong></div>
+      <div class="quick"><span>분위기</span><strong>조용한 산책</strong></div>
+      <div class="quick"><span>속도</span><strong>느긋하게</strong></div>
+      <div class="quick"><span>필수 준비</span><strong>가벼운 짐</strong></div>
+    </section>
+
+    <section class="days">
+      <article class="day">
+        <header class="day-head">
+          <div class="day-num">DAY 1</div>
+          <div class="day-theme">도착 · 정돈 · 밤 산책</div>
+        </header>
+
+        <div class="timeline">
+          <div class="item">
+            <time class="time">11:00</time>
+            <div>
+              <span class="title">만남과 출발</span>
+              <span class="memo">역 또는 터미널에서 만나 커피 한 잔 들고 천천히 이동</span>
+            </div>
+          </div>
+
+          <div class="item">
+            <time class="time">13:00</time>
+            <div>
+              <span class="title">점심 식사</span>
+              <span class="memo">자극적이지 않은 메뉴로 가볍게 시작하기</span>
+              <span class="tag">예약 후보</span>
+            </div>
+          </div>
+
+          <div class="item">
+            <time class="time">15:00</time>
+            <div>
+              <span class="title">숙소 체크인</span>
+              <span class="memo">짐 풀고 30분 정도 아무것도 안 하는 시간</span>
+            </div>
+          </div>
+
+          <div class="item">
+            <time class="time">17:00</time>
+            <div>
+              <span class="title">숲길 또는 강변 산책</span>
+              <span class="memo">사진은 조금만, 걸음은 천천히</span>
+            </div>
+          </div>
+
+          <div class="item">
+            <time class="time">19:00</time>
+            <div>
+              <span class="title">저녁과 조용한 마무리</span>
+              <span class="memo">따뜻한 밥, 짧은 대화, 일찍 쉬기</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="day">
+        <header class="day-head">
+          <div class="day-num">DAY 2</div>
+          <div class="day-theme">아침 공기 · 가벼운 체험 · 귀가</div>
+        </header>
+
+        <div class="timeline">
+          <div class="item">
+            <time class="time">08:30</time>
+            <div>
+              <span class="title">느린 기상</span>
+              <span class="memo">커튼 열고 물 한 잔, 준비는 여유 있게</span>
+            </div>
+          </div>
+
+          <div class="item">
+            <time class="time">10:00</time>
+            <div>
+              <span class="title">아침 산책과 브런치</span>
+              <span class="memo">숙소 근처 카페나 작은 식당에서 간단히 먹기</span>
+            </div>
+          </div>
+
+          <div class="item">
+            <time class="time">12:00</time>
+            <div>
+              <span class="title">고요 체험</span>
+              <span class="memo">찻집, 정원, 전시, 명상 공간 중 하나 선택</span>
+              <span class="tag">메인 일정</span>
+            </div>
+          </div>
+
+          <div class="item">
+            <time class="time">14:30</time>
+            <div>
+              <span class="title">기념품과 간식</span>
+              <span class="memo">동선 가까운 곳에서 작게 둘러보기</span>
+            </div>
+          </div>
+
+          <div class="item">
+            <time class="time">16:00</time>
+            <div>
+              <span class="title">귀가</span>
+              <span class="memo">다음 날 피곤하지 않게 조금 이른 출발</span>
+            </div>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section class="note-band">
+      <div class="note">
+        <h2>챙길 것</h2>
+        <ul>
+          <li>편한 신발, 얇은 겉옷, 충전기</li>
+          <li>예약 필요한 식당과 체험 장소 확인</li>
+          <li>비 오면 실내 코스로 바꿀 후보 1곳</li>
+        </ul>
+      </div>
+
+      <div class="note">
+        <h2>이번 여행 규칙</h2>
+        <p>무리하지 않기. 줄 길면 과감히 넘기기. 마음에 드는 자리는 오래 머물기.</p>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
+```
